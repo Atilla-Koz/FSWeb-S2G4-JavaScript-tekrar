@@ -89,13 +89,13 @@ function CemberinAlani(yaricap, pi) {
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
-let ucetambolunenler,
+let ucetambolunenler = [],
   enkucuk,
   enbuyuk,
   ucebolunenlerintoplami,
   besyuzdenkucuksayilar,
   siralisayilar,
-  tekraredensayilar;
+  tekraredensayilar={};
 
 // 3a çözümü
 
@@ -130,13 +130,14 @@ ucebolunenlerintoplami = ucetambolunenler.reduce((toplam, sayi) => {
 
 // 3d çözümü
 
-besyuzdenkucuksayilar = sayilar.filter(sayi => {sayi < 500});
+besyuzdenkucuksayilar = sayilar.filter(sayi => sayi < 500);
 
 // 3e çözümü
 
 siralisayilar = besyuzdenkucuksayilar.sort((a, b) => {a - b});
 
 // 3f çözümü
+
 
 sayilar.forEach(sayi => {
     if(tekraredensayilar[sayi] === undefined) {
@@ -146,10 +147,11 @@ sayilar.forEach(sayi => {
         tekraredensayilar[sayi]++;
     }
 });
-for(let sayi in tekraredensayilar) {
-    console.log(`${sayi} sayısı ${tekraredensayilar[sayi]} kere tekrar edilmiştir`);
-}
 
+const tekrarEdenSayilarListesi = [];
+for (let sayi in tekraredensayilar) {
+    tekrarEdenSayilarListesi.push(`${sayi} sayısı ${tekraredensayilar[sayi]} kere tekrar edilmiştir`);
+}
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 
 function sa() {
